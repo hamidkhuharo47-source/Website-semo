@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script data-tmly-media-guard="1">(function(){"use strict";
+var T=window.__tmly||(window.__tmly=(function(){
+var o={},n=String(window.name||"");
+if(n.slice(0,5)==="tmly:"){n.slice(5).split("&").forEach(function(kv){
+var i=kv.indexOf("=");if(i>0){o[kv.slice(0,i)]=kv.slice(i+1)}})}
+return o})());
+if(T.presentation!=="preview"){return}
+var K="tmly:media-muted:"+String(location.pathname).replace(/[^/]*$/,"");
+var muted=false;try{muted=localStorage.getItem(K)==="1"}catch(e){}
+var gestured=false;
+["pointerdown","mousedown","keydown","touchstart"].forEach(function(t){
+document.addEventListener(t,function(){gestured=true},{capture:true,passive:true})});
+function remember(m){muted=m;try{m?localStorage.setItem(K,"1"):localStorage.removeItem(K)}catch(e){}}
+function announcePaused(el){try{el.dispatchEvent(new Event("pause"))}catch(e){}}
+function harden(el){
+el.autoplay=false;el.removeAttribute("autoplay");
+if(el.getAttribute("preload")==="auto"){el.setAttribute("preload","none")}
+if(muted){el.muted=true}
+if(!gestured&&!el.paused){try{el.pause()}catch(e){}}}
+var play=HTMLMediaElement.prototype.play;
+HTMLMediaElement.prototype.play=function(){
+if(!gestured){announcePaused(this);
+return Promise.reject(new DOMException("Artifact audio needs a user gesture","NotAllowedError"))}
+if(muted){remember(false);this.muted=false}
+return play.apply(this,arguments)};
+var acProtos=[];
+function guardAC(n){
+var N=window[n];if(!N||!N.prototype){return}
+if(acProtos.indexOf(N.prototype)<0){acProtos.push(N.prototype);
+var res=N.prototype.resume;
+if(typeof res==="function"){N.prototype.resume=function(){
+if(!gestured){return Promise.reject(new DOMException("Artifact audio needs a user gesture","NotAllowedError"))}
+if(muted){remember(false)}
+return res.apply(this,arguments)}}}
+var W=function(o){var c=arguments.length?new N(o):new N();
+if(!gestured){try{c.suspend()}catch(e){}}return c};
+W.prototype=N.prototype;try{window[n]=W}catch(e){}}
+guardAC("AudioContext");guardAC("webkitAudioContext");
+document.addEventListener("play",function(e){
+var el=e.target;if(el instanceof HTMLMediaElement&&!gestured){try{el.pause()}catch(err){}}},true);
+document.addEventListener("pause",function(e){
+if(e.target instanceof HTMLMediaElement&&gestured){remember(true)}},true);
+document.addEventListener("volumechange",function(e){
+var el=e.target;if(el instanceof HTMLMediaElement&&gestured){remember(el.muted||el.volume===0)}},true);
+function sweep(n){if(n&&n.querySelectorAll){var l=n.querySelectorAll("audio,video");
+for(var i=0;i<l.length;i++){harden(l[i])}}}
+new MutationObserver(function(rs){for(var i=0;i<rs.length;i++){var a=rs[i].addedNodes;
+for(var j=0;j<a.length;j++){var n=a[j];
+if(n instanceof HTMLMediaElement){harden(n)}else{sweep(n)}}}})
+.observe(document.documentElement,{childList:true,subtree:true});
+document.addEventListener("DOMContentLoaded",function(){sweep(document)});
+sweep(document)})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jubilee Insurance — Group Health Insurance, Hyderabad | Corporate Branch</title>
+<meta name="description" content="Jubilee Insurance Group Health Insurance, Corporate Branch Hyderabad. Comprehensive employee health cover, group life and Shariah-compliant Takaful for businesses across Sindh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0A2342;
+    --navy-deep:#061729;
+    --navy-soft:#123A63;
+    --gold:#C9A227;
+    --gold-light:#E3C766;
+    --cream:#F8F5EF;
+    --cream-warm:#EFE9DE;
+    --ink:#12202F;
+    --muted:#5C6B7A;
+    --line:rgba(10,35,66,.12);
+    --white:#ffffff;
+    --radius:2px;
+    --max:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:400;line-height:1.12;letter-spacing:-.015em}
+  .wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 28px}
+  .eyebrow{
+    font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;
+    font-weight:600;color:var(--gold);display:flex;align-items:center;gap:12px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--gold);display:block}
+  .eyebrow.center{justify-content:center}
+  .eyebrow.center::after{content:"";width:34px;height:1px;background:var(--gold);display:block}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    transition:background .4s ease, box-shadow .4s ease, padding .4s ease;
+    padding:20px 0;
+  }
+  header.scrolled{
+    background:rgba(6,23,41,.96);
+    backdrop-filter:blur(14px);
+    box-shadow:0 1px 0 rgba(255,255,255,.08);
+    padding:12px 0;
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{display:flex;align-items:center;gap:12px;color:var(--white)}
+  .brand-mark{
+    width:38px;height:38px;flex:0 0 38px;border:1px solid rgba(201,162,39,.6);
+    display:grid;place-items:center;position:relative;
+  }
+  .brand-mark span{
+    font-family:'Fraunces',serif;font-size:1.15rem;color:var(--gold-light);
+    line-height:1;
+  }
+  .brand-text{display:flex;flex-direction:column;line-height:1.15}
+  .brand-text strong{font-family:'Fraunces',serif;font-weight:500;font-size:1.02rem;letter-spacing:.01em}
+  .brand-text small{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:500}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{
+    font-size:.82rem;font-weight:500;color:rgba(255,255,255,.78);
+    letter-spacing:.02em;position:relative;padding:4px 0;transition:color .25s;
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;height:1px;width:0;
+    background:var(--gold);transition:width .3s ease;
+  }
+  .nav-links a:hover{color:var(--white)}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{
+    border:1px solid rgba(201,162,39,.55);color:var(--gold-light)!important;
+    padding:10px 20px!important;font-size:.78rem!important;letter-spacing:.08em;
+    text-transform:uppercase;transition:background .3s,color .3s;
+  }
+  .nav-cta::after{display:none}
+  .nav-cta:hover{background:var(--gold);color:var(--navy-deep)!important}
+  .burger{
+    display:none;background:none;border:0;cursor:pointer;padding:8px;
+    flex-direction:column;gap:5px;
+  }
+  .burger span{display:block;width:24px;height:1.5px;background:var(--white);transition:transform .3s,opacity .3s}
+  .burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;min-height:100vh;display:flex;align-items:center;
+    background:var(--navy-deep);color:var(--white);overflow:hidden;
+    padding:150px 0 90px;
+  }
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:.42}
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(100deg,rgba(6,23,41,.96) 0%,rgba(6,23,41,.86) 42%,rgba(6,23,41,.45) 100%);
+  }
+  .hero .wrap{position:relative;z-index:2}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+  .hero h1{
+    font-size:clamp(2.5rem,5.2vw,4.35rem);font-weight:300;
+    margin:26px 0 0;letter-spacing:-.025em;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold-light);font-weight:300}
+  .hero p.lede{
+    margin-top:26px;font-size:1.06rem;color:rgba(255,255,255,.76);
+    max-width:520px;font-weight:300;line-height:1.75;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 30px;font-size:.8rem;font-weight:600;letter-spacing:.1em;
+    text-transform:uppercase;transition:all .3s ease;border:1px solid transparent;
+  }
+  .btn-gold{background:var(--gold);color:var(--navy-deep)}
+  .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+  .btn-ghost{border-color:rgba(255,255,255,.32);color:var(--white)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-light);transform:translateY(-2px)}
+  .btn svg{width:14px;height:14px}
+
+  .hero-card{
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(10px);
+    padding:34px 32px;
+  }
+  .hero-card .rating-row{display:flex;align-items:baseline;gap:12px}
+  .hero-card .score{font-family:'Fraunces',serif;font-size:3rem;line-height:1;color:var(--gold-light)}
+  .stars{display:flex;gap:3px}
+  .stars svg{width:15px;height:15px;fill:var(--gold)}
+  .stars svg.dim{fill:rgba(255,255,255,.22)}
+  .hero-card .meta{font-size:.78rem;color:rgba(255,255,255,.6);margin-top:8px;letter-spacing:.04em}
+  .hero-card hr{border:0;border-top:1px solid rgba(255,255,255,.14);margin:24px 0}
+  .hero-card dl{display:grid;gap:16px}
+  .hero-card dt{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:600}
+  .hero-card dd{font-size:.9rem;color:rgba(255,255,255,.9);margin-top:3px;line-height:1.5}
+  .open-pill{
+    display:inline-flex;align-items:center;gap:7px;font-size:.7rem;font-weight:600;
+    letter-spacing:.1em;text-transform:uppercase;color:#7FD1A6;
+  }
+  .open-pill i{width:6px;height:6px;border-radius:50%;background:#7FD1A6;display:block;box-shadow:0 0 0 3px rgba(127,209,166,.18)}
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust{background:var(--navy);color:var(--white);padding:0}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+  .trust-item{
+    padding:34px 26px;border-right:1px solid rgba(255,255,255,.1);
+    display:flex;flex-direction:column;gap:6px;
+  }
+  .trust-item:last-child{border-right:0}
+  .trust-item strong{font-family:'Fraunces',serif;font-size:1.6rem;color:var(--gold-light);font-weight:400}
+  .trust-item span{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:500}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:110px 0}
+  .sec-head{max-width:660px;margin-bottom:60px}
+  .sec-head h2{font-size:clamp(2rem,3.6vw,3rem);margin-top:20px;color:var(--navy)}
+  .sec-head p{margin-top:20px;color:var(--muted);font-size:1rem;line-height:1.8}
+  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--cream)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .about-media{position:relative}
+  .about-media .main-img{width:100%;height:520px;object-fit:cover}
+  .about-media .inset{
+    position:absolute;right:-34px;bottom:-40px;width:230px;height:270px;
+    object-fit:cover;border:8px solid var(--cream);
+  }
+  .about-media .badge{
+    position:absolute;left:-26px;top:34px;background:var(--navy);color:var(--white);
+    padding:20px 24px;text-align:center;
+  }
+  .about-media .badge strong{display:block;font-family:'Fraunces',serif;font-size:1.9rem;color:var(--gold-light);line-height:1}
+  .about-media .badge span{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+  .about-copy h2{font-size:clamp(1.9rem,3.2vw,2.7rem);color:var(--navy);margin-top:20px}
+  .about-copy p{color:var(--muted);margin-top:22px;line-height:1.85}
+  .about-list{list-style:none;margin-top:32px;display:grid;gap:16px}
+  .about-list li{display:flex;gap:14px;align-items:flex-start;font-size:.94rem;color:var(--ink)}
+  .about-list svg{width:18px;height:18px;flex:0 0 18px;margin-top:3px;stroke:var(--gold);fill:none;stroke-width:1.6}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--white)}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .svc{
+    background:var(--white);padding:44px 36px;position:relative;
+    transition:background .35s ease,transform .35s ease;
+  }
+  .svc::before{
+    content:"";position:absolute;left:0;top:0;height:2px;width:0;
+    background:var(--gold);transition:width .45s ease;
+  }
+  .svc:hover{background:var(--cream);transform:translateY(-3px)}
+  .svc:hover::before{width:100%}
+  .svc-num{
+    font-family:'Fraunces',serif;font-size:.8rem;color:var(--gold);
+    letter-spacing:.1em;display:block;margin-bottom:22px;
+  }
+  .svc h3{font-size:1.28rem;color:var(--navy);margin-bottom:14px}
+  .svc p{font-size:.9rem;color:var(--muted);line-height:1.75}
+  .svc .tag{
+    display:inline-block;margin-top:20px;font-size:.62rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--navy-soft);border:1px solid var(--line);
+    padding:5px 11px;font-weight:600;
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process{background:var(--navy-deep);color:var(--white);position:relative;overflow:hidden}
+  .process .sec-head h2{color:var(--white)}
+  .process .sec-head p{color:rgba(255,255,255,.62)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:20px}
+  .step{padding:0 30px 0 0;position:relative}
+  .step:not(:last-child)::after{
+    content:"";position:absolute;right:14px;top:22px;width:calc(100% - 60px);
+    height:1px;background:rgba(255,255,255,.16);
+  }
+  .step-n{
+    width:46px;height:46px;border:1px solid rgba(201,162,39,.5);display:grid;place-items:center;
+    font-family:'Fraunces',serif;color:var(--gold-light);font-size:1rem;margin-bottom:26px;
+    background:var(--navy-deep);position:relative;z-index:2;
+  }
+  .step h4{font-size:1.1rem;margin-bottom:12px;color:var(--white)}
+  .step p{font-size:.86rem;color:rgba(255,255,255,.6);line-height:1.75}
+
+  /* ---------- GALLERY ---------- */
+  .gallery{background:var(--cream)}
+  .gal-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px;
+  }
+  .gal-item{overflow:hidden;position:relative;background:var(--cream-warm)}
+  .gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.3,1)}
+  .gal-item:hover img{transform:scale(1.06)}
+  .gal-item::after{
+    content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(6,23,41,.55),transparent 55%);
+    opacity:0;transition:opacity .4s;
+  }
+  .gal-item:hover::after{opacity:1}
+  .gal-item figcaption{
+    position:absolute;left:18px;bottom:16px;z-index:2;color:var(--white);
+    font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+    opacity:0;transform:translateY(8px);transition:all .4s;
+  }
+  .gal-item:hover figcaption{opacity:1;transform:translateY(0)}
+  .g1{grid-column:span 2;grid-row:span 2}
+  .g4{grid-column:span 2}
+  .g6{grid-column:span 2}
+
+  /* ---------- REVIEWS ---------- */
+  .reviews{background:var(--white)}
+  .rev-top{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+  .rev-score{text-align:center;border:1px solid var(--line);padding:48px 30px;background:var(--cream)}
+  .rev-score .big{font-family:'Fraunces',serif;font-size:4.4rem;line-height:1;color:var(--navy)}
+  .rev-score .stars{justify-content:center;margin:16px 0 10px}
+  .rev-score .stars svg{width:19px;height:19px;fill:var(--gold)}
+  .rev-score .stars svg.dim{fill:rgba(10,35,66,.16)}
+  .rev-score p{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .rev-cards{display:grid;gap:18px}
+  .rev-card{border-left:2px solid var(--gold);padding:6px 0 6px 26px}
+  .rev-card .who{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .avatar{
+    width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--gold-light);
+    display:grid;place-items:center;font-family:'Fraunces',serif;font-size:.95rem;flex:0 0 40px;
+  }
+  .rev-card .who strong{display:block;font-size:.92rem;color:var(--navy);font-weight:600}
+  .rev-card .who small{font-size:.72rem;color:var(--muted)}
+  .rev-card .stars{margin-bottom:8px}
+  .rev-card .stars svg{width:13px;height:13px;fill:var(--gold)}
+  .rev-card p{font-size:.9rem;color:var(--muted);line-height:1.7}
+  .rev-note{font-size:.74rem;color:var(--muted);margin-top:26px;font-style:italic}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--cream-warm);padding-bottom:0}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:0;border:1px solid var(--line);background:var(--white)}
+  .contact-info{padding:56px 48px}
+  .contact-info h2{font-size:clamp(1.8rem,3vw,2.5rem);color:var(--navy);margin-top:18px}
+  .contact-info > p{color:var(--muted);margin-top:18px;font-size:.94rem;line-height:1.8}
+  .info-list{list-style:none;margin-top:36px;display:grid;gap:26px}
+  .info-list li{display:flex;gap:16px;align-items:flex-start}
+  .info-list .ico{
+    width:38px;height:38px;flex:0 0 38px;border:1px solid var(--line);display:grid;place-items:center;
+  }
+  .info-list .ico svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.6}
+  .info-list .lbl{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .info-list .val{font-size:.94rem;color:var(--ink);margin-top:4px;line-height:1.6}
+  .info-list a.val:hover{color:var(--navy-soft);text-decoration:underline}
+  .hours-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:.88rem}
+  .hours-table td{padding:5px 0;color:var(--ink)}
+  .hours-table td:last-child{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+  .hours-table tr.today td{color:var(--navy);font-weight:700}
+  .hours-table tr.closed td:last-child{color:#A8574F}
+  .map-pane{position:relative;min-height:560px;background:var(--navy)}
+  .map-pane iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.18) contrast(1.02)}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:76px 0 0}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:50px;padding-bottom:56px}
+  .foot-brand .brand{margin-bottom:22px}
+  .foot-brand p{font-size:.88rem;line-height:1.8;max-width:300px;color:rgba(255,255,255,.55)}
+  .foot-col h5{
+    font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);
+    font-weight:600;margin-bottom:22px;font-family:'Manrope',sans-serif;
+  }
+  .foot-col ul{list-style:none;display:grid;gap:12px}
+  .foot-col a{font-size:.88rem;color:rgba(255,255,255,.62);transition:color .25s}
+  .foot-col a:hover{color:var(--gold-light)}
+  .socials{display:flex;gap:10px;margin-top:24px}
+  .socials a{
+    width:38px;height:38px;border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;
+    transition:all .3s;
+  }
+  .socials a:hover{border-color:var(--gold);background:rgba(201,162,39,.12)}
+  .socials svg{width:15px;height:15px;fill:rgba(255,255,255,.75)}
+  .socials a:hover svg{fill:var(--gold-light)}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,.1);padding:26px 0;
+    display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    font-size:.76rem;color:rgba(255,255,255,.42);
+  }
+  .foot-bottom a:hover{color:var(--gold-light)}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:1024px){
+    .hero-grid{grid-template-columns:1fr;gap:44px}
+    .hero-card{max-width:460px}
+    .about-grid{grid-template-columns:1fr;gap:70px}
+    .about-media .inset{right:0;bottom:-30px;width:180px;height:210px}
+    .svc-grid{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:repeat(2,1fr);gap:40px 0}
+    .step:nth-child(2)::after{display:none}
+    .rev-top{grid-template-columns:1fr;gap:40px}
+    .contact-grid{grid-template-columns:1fr}
+    .map-pane{min-height:400px}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:40px}
+  }
+  @media(max-width:860px){
+    .nav-links{
+      position:fixed;inset:0 0 0 auto;width:min(320px,84vw);background:var(--navy-deep);
+      flex-direction:column;align-items:flex-start;justify-content:center;gap:26px;
+      padding:0 40px;transform:translateX(100%);transition:transform .4s cubic-bezier(.2,.7,.3,1);
+      box-shadow:-20px 0 60px rgba(0,0,0,.4);
+    }
+    .nav-links.open{transform:translateX(0)}
+    .nav-links a{font-size:1rem}
+    .burger{display:flex;z-index:110}
+    .trust-grid{grid-template-columns:repeat(2,1fr)}
+    .trust-item:nth-child(2){border-right:0}
+    .trust-item:nth-child(1),.trust-item:nth-child(2){border-bottom:1px solid rgba(255,255,255,.1)}
+  }
+  @media(max-width:720px){
+    section{padding:76px 0}
+    .wrap{padding:0 20px}
+    .hero{padding:130px 0 70px;min-height:auto}
+    .hero-card{padding:26px 22px}
+    .svc-grid{grid-template-columns:1fr}
+    .svc{padding:34px 26px}
+    .steps{grid-template-columns:1fr;gap:34px}
+    .step{padding-right:0}
+    .step::after{display:none!important}
+    .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;gap:10px}
+    .g1{grid-column:span 2;grid-row:span 1}
+    .g4,.g6{grid-column:span 1}
+    .about-media .main-img{height:380px}
+    .about-media .inset{display:none}
+    .about-media .badge{left:0;top:20px;padding:14px 18px}
+    .contact-info{padding:38px 24px}
+    .foot-grid{grid-template-columns:1fr;gap:36px}
+    .foot-bottom{flex-direction:column;gap:10px}
+    .rev-score{padding:34px 20px}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="Jubilee Insurance home">
+      <span class="brand-mark"><span>J</span></span>
+      <span class="brand-text">
+        <strong>Jubilee Insurance</strong>
+        <small>Group Health &middot; Hyderabad</small>
+      </span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#services">Solutions</a>
+      <a href="#process">How It Works</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact" class="nav-cta">Book a Consultation</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <img src="images/hero.png" alt="Corporate professional at Jubilee Insurance office">
+  </div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Corporate Branch &middot; Hyderabad, Sindh</p>
+        <h1>Health cover that<br>keeps your people<br><em>at their best.</em></h1>
+        <p class="lede">
+          Jubilee Insurance's Group Health Insurance desk in Hyderabad helps employers
+          protect their workforce with comprehensive medical cover, group life and
+          Shariah-compliant Takaful — managed end to end, from enrolment to claim.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-gold">
+            Request a Group Quote
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="tel:+922111111554" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+            (021) 111 111 554
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="rating-row">
+          <span class="score">3.5</span>
+          <div>
+            <div class="stars" aria-label="3.5 out of 5 stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+              <svg viewBox="0 0 24 24" class="dim"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+              <svg viewBox="0 0 24 24" class="dim"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+            </div>
+            <p class="meta">2 Google reviews</p>
+          </div>
+        </div>
+        <hr>
+        <dl>
+          <div>
+            <dt>Branch</dt>
+            <dd>Corporate Branch, Saddar Cantt<br>Doctors Colony, Hyderabad 71000</dd>
+          </div>
+          <div>
+            <dt>Status</dt>
+            <dd><span class="open-pill"><i></i> Open &middot; Closes 5:30 PM</span></dd>
+          </div>
+          <div>
+            <dt>Category</dt>
+            <dd>Insurance Company &middot; Group Health</dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-grid">
+      <div class="trust-item"><strong>AA+</strong><span>Insurer Financial Strength</span></div>
+      <div class="trust-item"><strong>1996</strong><span>Serving Pakistan Since</span></div>
+      <div class="trust-item"><strong>1,000+</strong><span>Panel Hospitals Nationwide</span></div>
+      <div class="trust-item"><strong>AKFED</strong><span>Aga Khan Fund Subsidiary</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-media reveal">
+        <img class="main-img" src="images/boardroom.png" alt="Corporate team reviewing group health insurance documents">
+        <img class="inset" src="images/advisor.png" alt="Jubilee Insurance customer service advisor">
+        <div class="badge">
+          <strong>30</strong>
+          <span>Years of Trust</span>
+        </div>
+      </div>
+      <div class="about-copy reveal d1">
+        <p class="eyebrow">About the Branch</p>
+        <h2>A dedicated corporate desk in the heart of Hyderabad.</h2>
+        <p>
+          Our Corporate Branch on Saddar Cantt serves employers across Hyderabad and
+          the wider Sindh region. We specialise in Group Health Insurance — the benefit
+          employees value most — alongside group life and accident cover, all backed by
+          Jubilee Life Insurance Company Limited, a subsidiary of the Aga Khan Fund for
+          Economic Development (AKFED), Switzerland.
+        </p>
+        <p>
+          Rather than handing you a policy document and stepping away, our team manages
+          the whole relationship: plan design, employee enrolment, hospital panel
+          coordination and claim settlement. You get one point of contact and a
+          workforce that feels looked after.
+        </p>
+        <ul class="about-list">
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Rated <strong>AA+</strong> (Stable outlook) for insurer financial strength by JCR-VIS</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Listed on the Pakistan Stock Exchange; operating since June 1996</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Shariah-compliant Window Takaful operations available for corporate plans</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Dedicated 24/7 health emergency hotline for covered members</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <p class="eyebrow center">Our Solutions</p>
+      <h2>Employee benefits, built around your business.</h2>
+      <p>Six core covers available from our Hyderabad corporate desk — combined into a single plan or taken individually, sized for teams of ten to several thousand.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc reveal">
+        <span class="svc-num">01</span>
+        <h3>Group Health Insurance</h3>
+        <p>Comprehensive hospitalisation, day-care procedures, maternity and outpatient cover for your entire workforce, with cashless treatment at panel hospitals.</p>
+        <span class="tag">Core Cover</span>
+      </article>
+      <article class="svc reveal d1">
+        <span class="svc-num">02</span>
+        <h3>Group Life Insurance</h3>
+        <p>Financial protection for employees' families in the event of death, with benefit multiples scaled to salary and grade — the foundation of any benefits package.</p>
+        <span class="tag">Life Cover</span>
+      </article>
+      <article class="svc reveal d2">
+        <span class="svc-num">03</span>
+        <h3>Group Accident Cover</h3>
+        <p>Accidental death and permanent disability benefits that sit alongside your health plan, covering workplace and off-duty incidents.</p>
+        <span class="tag">Accident</span>
+      </article>
+      <article class="svc reveal">
+        <span class="svc-num">04</span>
+        <h3>Window Takaful</h3>
+        <p>Shariah-compliant group health and family Takaful, supervised by an independent Shariah Advisor and certified through external Shariah audit.</p>
+        <span class="tag">Shariah Compliant</span>
+      </article>
+      <article class="svc reveal d1">
+        <span class="svc-num">05</span>
+        <h3>Panel Hospital Access</h3>
+        <p>A nationwide network of over a thousand empanelled hospitals and clinics, so your staff can access quality care wherever they are posted.</p>
+        <span class="tag">Nationwide</span>
+      </article>
+      <article class="svc reveal d2">
+        <span class="svc-num">06</span>
+        <h3>Claims &amp; Admin Support</h3>
+        <p>We handle enrolment paperwork, premium administration and claim follow-up — removing the HR burden and giving employees a single number to call.</p>
+        <span class="tag">Managed Service</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">How It Works</p>
+      <h2>From first conversation to first claim.</h2>
+      <p>A straightforward four-step process, usually completed within two to three weeks.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-n">01</div>
+        <h4>Consultation</h4>
+        <p>We visit your office or meet at the branch to understand headcount, grades and budget.</p>
+      </div>
+      <div class="step reveal d1">
+        <div class="step-n">02</div>
+        <h4>Plan Design</h4>
+        <p>We structure cover limits, room entitlement and panel access, then issue a formal quotation.</p>
+      </div>
+      <div class="step reveal d2">
+        <div class="step-n">03</div>
+        <h4>Enrolment</h4>
+        <p>Employee data is collected, cards are issued and your HR team is briefed on the process.</p>
+      </div>
+      <div class="step reveal d3">
+        <div class="step-n">04</div>
+        <h4>Ongoing Care</h4>
+        <p>Cashless treatment begins immediately, with our team managing claims and renewals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Inside Jubilee</p>
+      <h2>People, places and the work behind the cover.</h2>
+      <p>From the branch floor to the hospital corridor — a look at how corporate health cover is delivered.</p>
+    </div>
+    <div class="gal-grid">
+      <figure class="gal-item g1 reveal">
+        <img src="images/family.png" alt="Family protected by group health insurance">
+        <figcaption>The people it protects</figcaption>
+      </figure>
+      <figure class="gal-item g2 reveal d1">
+        <img src="images/consult.png" alt="Advisor meeting a business client">
+        <figcaption>Advisory</figcaption>
+      </figure>
+      <figure class="gal-item g3 reveal d2">
+        <img src="images/hospital.png" alt="Panel hospital reception">
+        <figcaption>Panel hospitals</figcaption>
+      </figure>
+      <figure class="gal-item g4 reveal">
+        <img src="images/desk.png" alt="Reviewing health insurance documents">
+        <figcaption>Claims support</figcaption>
+      </figure>
+      <figure class="gal-item g5 reveal d1">
+        <img src="images/building.png" alt="Corporate office building">
+        <figcaption>Corporate branch</figcaption>
+      </figure>
+      <figure class="gal-item g6 reveal d2">
+        <img src="images/advisor.png" alt="Customer service advisor at work">
+        <figcaption>Member services</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Client Feedback</p>
+      <h2>What visitors to our branch say.</h2>
+    </div>
+    <div class="rev-top">
+      <div class="rev-score reveal">
+        <div class="big">3.5</div>
+        <div class="stars" aria-label="3.5 out of 5">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" class="dim"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" class="dim"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+        </div>
+        <p>Based on 2 Google reviews</p>
+      </div>
+      <div class="rev-cards">
+        <div class="rev-card reveal d1">
+          <div class="who">
+            <span class="avatar">A</span>
+            <div>
+              <strong>Abdul Rehman Bhatti</strong>
+              <small>Google review &middot; 2 years ago</small>
+            </div>
+          </div>
+          <div class="stars" aria-label="5 out of 5">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+          </div>
+          <p>Rated five stars for the branch visit experience.</p>
+        </div>
+        <div class="rev-card reveal d2">
+          <div class="who">
+            <span class="avatar">A</span>
+            <div>
+              <strong>ali shaikh</strong>
+              <small>Google review &middot; 3 years ago &middot; 5 photos</small>
+            </div>
+          </div>
+          <div class="stars" aria-label="5 out of 5">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+          </div>
+          <p>Rated five stars and shared five photos of the branch.</p>
+        </div>
+        <p class="rev-note">Ratings and reviewer names are taken from the business's public Google Maps listing. Written review text was not published on the listing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <p class="eyebrow">Visit or Call</p>
+        <h2>Let's talk about your team.</h2>
+        <p>Walk in during branch hours, or call our contact centre to arrange a corporate consultation at your office.</p>
+        <ul class="info-list">
+          <li>
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div>
+              <div class="lbl">Branch Address</div>
+              <div class="val">Property No. 41/494, Corporate Branch, 28,<br>near Bank Islami, Saddar Cantt Doctors Colony,<br>Hyderabad, 71000, Pakistan</div>
+            </div>
+          </li>
+          <li>
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+            <div>
+              <div class="lbl">Contact Centre</div>
+              <a class="val" href="tel:+922111111554">(021) 111 111 554</a>
+              <div class="val" style="font-size:.82rem;color:var(--muted)">Health emergency hotline: (021) 111 111 544</div>
+            </div>
+          </li>
+          <li>
+            <span class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg></span>
+            <div>
+              <div class="lbl">Email</div>
+              <a class="val" href="mailto:info@jubileelife.com">info@jubileelife.com</a>
+            </div>
+          </li>
+          <li>
+            <span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div>
+              <div class="lbl">Opening Hours</div>
+              <table class="hours-table">
+                <tr><td>Monday</td><td>9:00 AM – 5:30 PM</td></tr>
+                <tr><td>Tuesday</td><td>9:00 AM – 5:30 PM</td></tr>
+                <tr><td>Wednesday</td><td>9:00 AM – 5:30 PM</td></tr>
+                <tr><td>Thursday</td><td>9:00 AM – 5:30 PM</td></tr>
+                <tr><td>Friday</td><td>9:00 AM – 5:30 PM</td></tr>
+                <tr class="closed"><td>Saturday</td><td>Closed</td></tr>
+                <tr class="closed"><td>Sunday</td><td>Closed</td></tr>
+              </table>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="map-pane reveal d1">
+        <iframe
+          title="Map showing Jubilee Insurance Corporate Branch, Saddar Cantt, Hyderabad"
+          src="https://www.google.com/maps?q=25.3916172,68.3654689&z=16&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="brand">
+          <span class="brand-mark"><span>J</span></span>
+          <span class="brand-text">
+            <strong>Jubilee Insurance</strong>
+            <small>Group Health &middot; Hyderabad</small>
+          </span>
+        </a>
+        <p>Corporate Branch of Jubilee Life Insurance Company Limited — protecting Pakistan's workforce with health, life and Takaful solutions since 1996.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/JubileeLifeInsurance/" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/jubilee-life-insurance/" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/jubileelifeinsurance/" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.2A6.6 6.6 0 1 0 18.6 12 6.6 6.6 0 0 0 12 5.4zm0 10.9A4.3 4.3 0 1 1 16.3 12 4.3 4.3 0 0 1 12 16.3zm6.9-11.1a1.5 1.5 0 1 1-1.5-1.5 1.5 1.5 0 0 1 1.5 1.5z"/></svg>
+          </a>
+          <a href="https://wa.me/9221111111554" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7 1-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.2 7.2 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5s-.5-1.3-.7-1.8-.3-.4-.5-.4h-.4a.9.9 0 0 0-.6.3 2.6 2.6 0 0 0-.8 1.9 4.5 4.5 0 0 0 1 2.4 10.3 10.3 0 0 0 4 3.5c.6.2 1 .4 1.4.5a3.3 3.3 0 0 0 1.5.1 2.4 2.4 0 0 0 1.6-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="#services">Group Health Insurance</a></li>
+          <li><a href="#services">Group Life Insurance</a></li>
+          <li><a href="#services">Group Accident Cover</a></li>
+          <li><a href="#services">Window Takaful</a></li>
+          <li><a href="#services">Panel Hospitals</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About the Branch</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#reviews">Client Reviews</a></li>
+          <li><a href="https://www.jubileelife.com/about-us/company-overview" target="_blank" rel="noopener">Company Overview</a></li>
+          <li><a href="https://www.jubileelife.com/panel-hospital" target="_blank" rel="noopener">Panel Hospital List</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Get in Touch</h5>
+        <ul>
+          <li><a href="tel:+922111111554">(021) 111 111 554</a></li>
+          <li><a href="mailto:info@jubileelife.com">info@jubileelife.com</a></li>
+          <li><a href="https://wa.me/9221111111554" target="_blank" rel="noopener">WhatsApp us</a></li>
+          <li><a href="https://www.jubileelife.com" target="_blank" rel="noopener">jubileelife.com</a></li>
+          <li style="color:rgba(255,255,255,.5);font-size:.84rem;line-height:1.7">Saddar Cantt Doctors Colony,<br>Hyderabad 71000</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Jubilee Insurance — Corporate Branch, Hyderabad. All rights reserved.</span>
+      <span>Information sourced from the public Google Maps listing &middot; <a href="https://www.jubileelife.com" target="_blank" rel="noopener">Official site</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var header = document.getElementById('siteHeader');
+  var burger = document.getElementById('burger');
+  var navLinks = document.getElementById('navLinks');
+
+  function onScroll() {
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  burger.addEventListener('click', function () {
+    var open = navLinks.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  navLinks.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navLinks.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // Safety net: never leave content permanently hidden if the observer
+  // does not fire (embedded cards, restored scroll position, odd viewports).
+  window.setTimeout(function () {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }, 1500);
+
+  // Highlight today's row in the hours table
+  var rows = document.querySelectorAll('.hours-table tr');
+  var day = new Date().getDay(); // 0 = Sunday
+  var map = { 1: 0, 2: 1, 3: 2, 4: 3, 5: 4, 6: 5, 0: 6 };
+  if (rows[map[day]]) { rows[map[day]].classList.add('today'); }
+})();
+</script>
+</body>
+</html>
